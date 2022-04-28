@@ -1,7 +1,17 @@
 <template>
-    <div class="map"></div>
+  <div class="map"></div>
 </template>
-
+<style>
+#map {
+  height: 100%;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+</style>
 <script async
     src="https://maps.googleapis.com/maps/api/js?callback=initMap">
 
@@ -15,5 +25,16 @@ function initMap() {
 }
 
 window.initMap = initMap;
-
 </script>
+
+<style>
+#map {
+  height: 100%;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+</style>

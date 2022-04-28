@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Map;
 use App\Http\Controllers\weatherapi;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,6 +27,7 @@ Route::get('/', function () {
 });
 
 Route::get('/Weather', [weatherapi::class, 'index']);
+Route::get('/Map', [Map::class, 'index']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
