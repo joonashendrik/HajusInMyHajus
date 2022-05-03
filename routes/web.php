@@ -26,7 +26,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/weather', [Weatherapi::class, 'index']);
+Route::get('/Weather', [Weatherapi::class, 'index']);
 Route::get('/Map', [Map::class, 'index']);
 
 Route::get('/dashboard', function () {
