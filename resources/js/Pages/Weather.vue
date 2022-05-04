@@ -3,8 +3,14 @@
     <!-- <div class="container">{{ weatherData }}</div> -->
   </head>
   <div>
-  {{data}}
-)))____
+  <!-- {{data}} -->
+  </div>
+  <div class="flex gap-2 justify-center">
+      <p>{{data.name}}</p>
+      <p><span class="font-serif">temp:{{data.main.temp}}℃</span></p>
+       <p><span class="font-serif">feels like:{{data.main.feels_like}}℃</span></p>
+       <p><span class="font-serif">wind speed:{{data.wind.speed}}m/s</span></p>
+       <!-- <p><span class="font-serif">weather description:{{data.weather.description}}</span></p> -->
   </div>
 </template>
 <script>
