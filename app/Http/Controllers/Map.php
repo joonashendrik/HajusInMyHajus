@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Marker;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 
@@ -9,6 +10,19 @@ class Map extends Controller
 {
     public function index()
     {
-        return Inertia::render('Map');
+        $data = Marker::all();
+        return Inertia::render('Map', [
+            'data' => $data
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        Marker::create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'latitude' => $request->lat,
+            'longitude' => $request->lng
+        ]);
     }
 }

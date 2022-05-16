@@ -28,6 +28,7 @@ Route::get('/', function () {
 
 Route::get('/Weather', [Weatherapi::class, 'index']);
 Route::get('/Map', [Map::class, 'index']);
+Route::post('/Map', [Map::class, 'store']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
