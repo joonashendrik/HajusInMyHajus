@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('markers', function (Blueprint $table) {
             $table->id();
-            $table->string("name");
-            $table->text("description");
-            $table->float("latitude");
-            $table->float("longitude");
+            $table->string("name")->nullable();
+            $table->text("description")->nullable();
+            $table->float("latitude", 8, 6);
+            $table->float("longitude", 8, 6);
             $table->timestamps();
         });
     }

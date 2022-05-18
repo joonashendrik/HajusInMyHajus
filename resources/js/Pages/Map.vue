@@ -1,12 +1,12 @@
 <template>
   <div class="lg:w-7/12 w-full h-96">
     <div class="h-full w-full" id="map" ref="map"></div>
-    <form @submit="submitForm">
-       <input type="text" v-model="form.name" />
-      <input type="text" v-model="form.description" />
-      <input type="text" v-model="form.lat" />
-      <input type="text" v-model="form.lng" />
-      <input type="submit" class="btn" value="Add marker" />
+    <form @submit.prevent='test()'>
+        <input placeholder="name" type="text" v-model="form.name" />
+        <input placeholder="description" type="text" v-model="form.description" />
+        <input placeholder="latitude" type="text" v-model="form.lat" />
+        <input placeholder="longtude" type="text" v-model="form.lng" />
+        <input type="submit" class="btn" value="Add marker" />
     </form>
     <table>
          <tr>
@@ -20,19 +20,17 @@
         <td>{{ item.description }}</td>
         <td>{{ item.latitude }}</td>
         <td>{{ item.latitude }}</td>
+        <button class="btn"> gg </button>
       </tr>
-
     </table>
-    <!-- <ul>
-        <li v-for="item in data": key="item.id">
-            {{item.name}} - {{item.description}} {{item.latidute}} {{item.longitude}}
-        </li>
-    </ul> -->
   </div>
 </template>
 <script>
 export default {
     props: { data: JSON },
+    test: function(){
+        console.log('yo')
+    }
 };
 </script>
 <script setup>
@@ -72,8 +70,8 @@ loader.load().then(() => {
   for (const key in props.data) {
     let markers = new google.maps.Marker({
       position: {
-        lat: parseInt(props.data[key].latitude),
-        lng: parseInt(props.data[key].longitude),
+        lat: props.data[key].latitude,
+        lng: props.data[key].longitude,
       },
       title: props.data[key].name,
       map,
