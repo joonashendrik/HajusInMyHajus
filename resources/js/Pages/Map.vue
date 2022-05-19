@@ -20,7 +20,7 @@
         <td>{{ item.description }}</td>
         <td>{{ item.latitude }}</td>
         <td>{{ item.latitude }}</td>
-        <button class="btn"> gg </button>
+        <button class="btn"> </button>
       </tr>
     </table>
   </div>
