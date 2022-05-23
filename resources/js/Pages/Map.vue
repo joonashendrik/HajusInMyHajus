@@ -7,6 +7,7 @@
         <input placeholder="latitude" type="text" v-model="form.lat" />
         <input placeholder="longtude" type="text" v-model="form.lng" />
         <input type="submit" class="btn" value="Add marker" />
+
     </form>
     <table>
          <tr>
@@ -14,6 +15,10 @@
         <th>Description</th>
         <th>latitude</th>
         <th>longitude</th>
+        <button @click="$emit('edit', item)" class="btn">Edit</button>
+        <button @click="$emit('delete', item)" class="btn">Delete</button>
+
+
       </tr>
       <tr v-for="item in data" :key="item.id">
         <td>{{ item.name }}</td>
@@ -31,7 +36,11 @@ export default {
     test: function(form){
         console.log('yo')
         form.post("/Map");
-    }
+    },
+      delete: function(data){
+          const dataForm = useForm({id: data.id})
+          dataForm.delete("/googlemaps/" + data.id)
+      }
 };
 </script>
 <script setup>
