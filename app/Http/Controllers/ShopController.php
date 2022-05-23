@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+use App\Models\Store;
+use Inertia\Inertia;
 
-class shopController extends Controller
+class ShopController extends Controller
 {
-    public function index()
-    {
-    
+    public function index() {
+
+        return Inertia::render('Store');
     }
 }
