@@ -1,6 +1,6 @@
 <template>
-    <div class="bg-black text-white">
-        tere
+    <div class="h-90 bg-black text-white">
+        cart
     </div>
     <div class="flex">
         <div class="mr-10 ml-8 mt-8 shadow-sm shadow-black w-80 h-300">
