@@ -1,7 +1,7 @@
 <template>
   <div class="lg:w-7/12 w-full h-96">
     <div class="h-full w-full" id="map" ref="map"></div>
-    <form @submit.prevent='test()'>
+    <form @submit='$emit("test", form)'>
         <input placeholder="name" type="text" v-model="form.name" />
         <input placeholder="description" type="text" v-model="form.description" />
         <input placeholder="latitude" type="text" v-model="form.lat" />
@@ -20,7 +20,7 @@
         <td>{{ item.description }}</td>
         <td>{{ item.latitude }}</td>
         <td>{{ item.latitude }}</td>
-        <button class="btn"> </button>
+        <button class="btn">  </button>
       </tr>
     </table>
   </div>
@@ -28,8 +28,9 @@
 <script>
 export default {
     props: { data: JSON },
-    test: function(){
+    test: function(form){
         console.log('yo')
+        form.post("/Map");
     }
 };
 </script>
@@ -92,7 +93,6 @@ loader.load().then(() => {
     form.lat = cord.lat;
     addMarker(event.latLng, map);
     //console.log("?");
-    form.post("/Map");
   });
 });
 function addMarker(location, map) {
