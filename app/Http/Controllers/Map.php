@@ -13,6 +13,7 @@ class Map extends Controller
         return Inertia::render('Map', ['data' => $data]);
     }
 
+
     public function store(Request $request){
         // return $request;
         Marker::create([
